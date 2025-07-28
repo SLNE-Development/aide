@@ -1,13 +1,12 @@
 package tech.hiddenproject.aide.reflection.util;
 
-import tech.hiddenproject.aide.optional.BooleanOptional;
-import tech.hiddenproject.aide.optional.ThrowableOptional;
-import tech.hiddenproject.aide.reflection.exception.ReflectionException;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import tech.hiddenproject.aide.optional.BooleanOptional;
+import tech.hiddenproject.aide.optional.ThrowableOptional;
+import tech.hiddenproject.aide.reflection.exception.ReflectionException;
 
 /**
  * Useful methods to work with reflection.
@@ -37,7 +36,6 @@ public class ReflectionUtil {
    * @param varAgsType Type of arguments
    * @param argCount   Count of same arguments in signature
    * @return {@link Method}
-   * @throws ReflectionException if no method found or argCount < 0
    */
   public static Method getMethod(Class<?> c, String name, Class<?> varAgsType, int argCount)
       throws ReflectionException {
@@ -69,6 +67,6 @@ public class ReflectionUtil {
    */
   public static Class<?>[] getVarArgTypes(Object... args) {
     return Arrays.stream(args).map(Object::getClass).collect(Collectors.toList())
-                              .toArray(new Class[]{});
+        .toArray(new Class[]{});
   }
 }
